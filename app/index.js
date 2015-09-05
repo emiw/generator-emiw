@@ -1,25 +1,25 @@
 /* (c) 2015 EMIW, LLC. emiw.xyz/license */
 var yeoman = require('yeoman-generator');
 var validLicense = require('validate-npm-package-license');
-var slugify = require("underscore.string/slugify");
+var slugify = require('underscore.string/slugify');
 
 module.exports = yeoman.generators.Base.extend({
-  prompting: function() {
+  prompting: function prompting() {
     var done = this.async();
 
     var people = {
       Ari: {
-        name: "Ari Porad",
-        email: "ari@emiw.xyz",
-        url: "http://ariporad.com"
+        name: 'Ari Porad',
+        email: 'ari@emiw.xyz',
+        url: 'http://ariporad.com',
       },
       Zoe: {
-        name: "Zoe Carver",
-        email: "zoe@emiw.xyz"
+        name: 'Zoe Carver',
+        email: 'zoe@emiw.xyz',
       },
       Henry: {
-        name: "Henry Roseman",
-        email: "henry@emiw.xyz"
+        name: 'Henry Roseman',
+        email: 'henry@emiw.xyz',
       },
     };
 
@@ -28,54 +28,49 @@ module.exports = yeoman.generators.Base.extend({
       {
         'type': 'input',
         'name': 'name',
-        'message': 'What do you want to name this module?: '
+        'message': 'What do you want to name this module?:',
       },
       {
         type: 'confirm',
         name: 'scope',
-        message: 'Should this package be scoped (should it start with @emiw/should it be private)?: '
+        message: 'Should this package be scoped (should it start with @emiw/should it be private)?:',
       },
       {
         type: 'input',
         name: 'desc',
-        message: 'What\'s the description for the module?'
+        message: 'What\'s the description for the module?',
       },
       {
         type: 'list',
         name: 'author',
-        message: 'Who is the primary author of the module? ',
+        message: 'Who is the primary author of the module?',
         choices: peopleNames,
       },
       {
         type: 'checkbox',
         name: 'contributors',
         message: 'Who else will be working on the module? ',
-        choices: function(props) {
+        choices: function contributorsChoices(props) {
           var peopleNamesWithoutAuthor = peopleNames.slice();
           peopleNamesWithoutAuthor.splice(peopleNames.indexOf(props.author), 1);
 
           return peopleNamesWithoutAuthor;
-        }
+        },
       },
       {
         type: 'input',
         name: 'license',
         message: 'What is the license for the module?: ',
         default: 'UNLICENSED',
-        validate: function(res) {
-          if (validLicense(res || this.default).validForNewPackages) {
-            return true;
-          } else {
-            return 'Invalid License.'
-          }
-        }
-      }
+        validate: function validateLicense(res) {
+          return validLicense(res || this.default).validForNewPackages || 'Invalid License.';
+        },
+      },
     ];
 
-    this.prompt(prompts, function(props) {
-      console.log(props);
+    this.prompt(prompts, function parsePrompts(props) {
       props.author = people[props.author];
-      props.contributors = (props.contributors || []).map(function(c) {
+      props.contributors = (props.contributors || []).map(function contribNamesToObjs(c) {
         return people[c];
       });
 
@@ -90,10 +85,10 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  contrib: function() {
+  contrib: function contrib() {
     function indent(str) {
-      str = str || '';
-      return str.split('\n').map(function(line) {
+      if (!str) return '';
+      return str.split('\n').map(function mapIndentLines(line) {
         return '  ' + line;
       }).join('\n');
     }
@@ -103,18 +98,19 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    copy: function() {
+    copy: function copy() {
+      var i;
       var files = {
         '_gulpfile.js': 'gulpfile.js',
         'babelrc.json': '.babelrc',
         'cz.json': '.cz.json',
         'eslintrc.json': '.eslintrc',
         'testSetup.js': 'test/setup.js',
-        'gitignore': '.gitignore'
+        'gitignore': '.gitignore',
       };
 
       var srcFiles = Object.keys(files);
-      for (var i = 0; i < srcFiles.length; i++) {
+      for (i = 0; i < srcFiles.length; i++) {
         this.fs.copy(
           this.templatePath(srcFiles[i]),
           this.destinationPath(files[srcFiles[i]])
@@ -122,14 +118,15 @@ module.exports = yeoman.generators.Base.extend({
       }
     },
 
-    copyTpl: function() {
+    copyTpl: function copyTpl() {
+      var i;
       var files = {
         '_package.json': 'package.json',
         'readme.md': 'README.md',
       };
 
       var srcFiles = Object.keys(files);
-      for (var i = 0; i < srcFiles.length; i++) {
+      for (i = 0; i < srcFiles.length; i++) {
         this.fs.copyTpl(
           this.templatePath(srcFiles[i]),
           this.destinationPath(files[srcFiles[i]]),
@@ -138,12 +135,12 @@ module.exports = yeoman.generators.Base.extend({
       }
     },
 
-    index: function() {
-      // this.composeWith("emiw:file", { args: ['src/index', 'js'] });
+    index: function index() {
+      this.composeWith('@emiw/file', { args: ['src/index', 'js'] });
     },
   },
 
-  install: function() {
+  install: function install() {
     this.installDependencies();
-  }
+  },
 });

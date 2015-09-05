@@ -11,7 +11,7 @@ var TESTS = 'src/**/*.test.js';
 
 gulp.task('default', ['build']);
 gulp.task('build', ['build:js', 'copy:other']);
-gulp.task('build:js', function() {
+gulp.task('build:js', function buildJs() {
   return gulp.src(SRC_JS)
     .pipe(plugins.changed(DEST))
     .pipe(plugins.sourcemaps.init())
@@ -20,20 +20,19 @@ gulp.task('build:js', function() {
     .pipe(gulp.dest(DEST));
 });
 
-gulp.task('copy:other', function(){
+gulp.task('copy:other', function copy(){
   return gulp.src(SRC_OTHER)
     .pipe(gulp.dest(DEST));
 });
 
-gulp.task('lint', function() {
+gulp.task('lint', function lint() {
   return gulp.src(SRC_JS)
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError());
 });
 
-gulp.task('test', ['lint', 'mocha']);
-gulp.task('mocha', function() {
+gulp.task('test', ['lint'], function test() {
   // Allow ES6 tests
   require('babel/register');
   require('source-map-support').install();
@@ -41,10 +40,10 @@ gulp.task('mocha', function() {
     .pipe(plugins.mocha());
 });
 
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', ['build'], function watch() {
   gulp.watch(SRC_JS, ['test', 'build']);
 });
 
-gulp.task('clean', function(cb) {
+gulp.task('clean', function clean(cb) {
   del([DEST], cb);
 });

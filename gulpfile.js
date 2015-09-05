@@ -2,8 +2,8 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 
-var SRC_JS = ['src/**/*.js'];
-var TESTS = 'src/**/*.test.js';
+var SRC_JS = ['app/**/*.js', '!app/templates/**'];
+var TESTS = ['app/**/*.test.js', '!app/templates/**'];
 
 gulp.task('lint', function() {
   return gulp.src(SRC_JS)
@@ -12,8 +12,7 @@ gulp.task('lint', function() {
     .pipe(plugins.eslint.failAfterError());
 });
 
-gulp.task('test', ['lint', 'mocha']);
-gulp.task('mocha', function() {
+gulp.task('test', ['lint'], function() {
   // Allow ES6 tests
   require('babel/register');
   require('source-map-support').install();
