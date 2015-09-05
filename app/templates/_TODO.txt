@@ -1,0 +1,13 @@
+Welcome to your new module!
+
+Some quick stuff to finish up before you start developing:
+- Create a git repo (`git init && git add . && git commit -am "chore: initial commit"`)
+- Create a github repo. (https://github.com/organizations/emiw/repositories/new)
+- Write code
+- Setup the project on Coveralls. (https://coveralls.io/repos/new?name=emiw&service=github)
+- Setup semantic-release (`npm i -g semantic-release-cli; semantic-release-cli setup`. You should use your github login, but the EMIW npm login)
+- From then on, pushing to github will build on Travis CI, then push coverage to Coveralls, and if the build passes, publish to npm.
+- ???
+- Profit.
+
+Enjoy!

@@ -107,6 +107,7 @@ module.exports = yeoman.generators.Base.extend({
         'eslintrc.json': '.eslintrc',
         'testSetup.js': 'test/setup.js',
         'gitignore': '.gitignore',
+        '_TODO.txt': 'TODO.txt',
       };
 
       var srcFiles = Object.keys(files);
