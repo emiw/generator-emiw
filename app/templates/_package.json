@@ -30,6 +30,7 @@
     "gulp-load-plugins": "0.10",
     "gulp-mocha": "2",
     "gulp-sourcemaps": "1",
+    "gulp-istanbul": "*",
     "mocha": "2",
     "sinon": "1",
     "babel": "5",

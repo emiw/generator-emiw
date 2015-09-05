@@ -1,7 +1,6 @@
 /* (c) 2015 EMIW, LLC. emiw.xyz/license */
 
 global.expect = require('chai').expect;
-global.rewire = require('rewire');
 
 var sandbox = require('sinon').sandbox;
 

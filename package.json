@@ -1,6 +1,6 @@
 {
   "name": "@emiw/generator-module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Easily scaffold a module",
   "main": "app/index.js",
   "scripts": {

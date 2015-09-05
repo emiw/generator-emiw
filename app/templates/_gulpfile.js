@@ -7,7 +7,13 @@ var SRC_OTHER = ['src/**', '!**/*.js'];
 var SRC_JS = ['src/**/*.js'];
 var DEST = './dist';
 
-var TESTS = 'src/**/*.test.js';
+var TESTS = ['test/setup.js', 'src/**/*.test.js'];
+
+function negate(paths){
+  return paths.map(function mapNegate(p) {
+    return '!' + p;
+  });
+}
 
 gulp.task('default', ['build']);
 gulp.task('build', ['build:js', 'copy:other']);
@@ -32,12 +38,20 @@ gulp.task('lint', function lint() {
     .pipe(plugins.eslint.failAfterError());
 });
 
-gulp.task('test', ['lint'], function test() {
+gulp.task('test', ['lint'], function test(cb) {
   // Allow ES6 tests
   require('babel/register');
   require('source-map-support').install();
-  return gulp.src(TESTS)
-    .pipe(plugins.mocha());
+  gulp.src(SRC_JS.concat(negate(TESTS)))
+    .pipe(plugins.istanbul()) // Covering files
+    .pipe(plugins.istanbul.hookRequire()) // Force `require` to return covered files
+    .on('finish', function () {
+          gulp.src(TESTS)
+            .pipe(plugins.mocha())
+            .pipe(plugins.istanbul.writeReports()) // Creating the reports after tests ran
+            .pipe(plugins.istanbul.enforceThresholds({ thresholds: { global: 90 } })) // Enforce a coverage of at least 90%
+            .on('end', cb);
+        });
 });
 
 gulp.task('watch', ['build'], function watch() {
