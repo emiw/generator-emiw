@@ -6,7 +6,6 @@
 --- 
 [![npm version](https://badge.fury.io/js/%40emiw%2Fgenerator-module.svg)](http://badge.fury.io/js/%40emiw%2Fgenerator-module) 
 [![Build Status](https://travis-ci.org/emiw/generator-module.svg)](https://travis-ci.org/emiw/generator-module) 
-[![Coverage Status](https://coveralls.io/repos/emiw/generator-module/badge.svg?branch=master&service=github)](https://coveralls.io/github/emiw/generator-module?branch=master)
 [![Dependency Status](https://david-dm.org/emiw/generator-module.svg)](https://david-dm.org/emiw/generator-module) 
 [![devDependency Status](https://david-dm.org/emiw/generator-module/dev-status.svg)](https://david-dm.org/emiw/generator-module#info=devDependencies)
 ---
