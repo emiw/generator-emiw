@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/emiw/<%= slug %>.git"
   },
-  "author": <%- authorStr %>,
-  "contributors": <%- contrib %>,
+  "author":<%- authorStr %>,
+  "contributors":<%- contrib %>,
   "devDependencies": {
     "eslint-config-airbnb": "*",
     "babel-eslint": "*",
