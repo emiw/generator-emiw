@@ -257,6 +257,5 @@ tramp
 
 ### Build ###
 build
-coverage
 dist
 

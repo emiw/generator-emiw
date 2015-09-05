@@ -9,7 +9,7 @@ var DEST = './dist';
 
 var TESTS = ['test/setup.js', 'src/**/*.test.js'];
 
-function negate(paths){
+function negate(paths) {
   return paths.map(function mapNegate(p) {
     return '!' + p;
   });
@@ -26,7 +26,7 @@ gulp.task('build:js', function buildJs() {
     .pipe(gulp.dest(DEST));
 });
 
-gulp.task('copy:other', function copy(){
+gulp.task('copy:other', function copy() {
   return gulp.src(SRC_OTHER)
     .pipe(gulp.dest(DEST));
 });
@@ -45,13 +45,22 @@ gulp.task('test', ['lint'], function test(cb) {
   gulp.src(SRC_JS.concat(negate(TESTS)))
     .pipe(plugins.istanbul()) // Covering files
     .pipe(plugins.istanbul.hookRequire()) // Force `require` to return covered files
-    .on('finish', function () {
+    .on('finish', function() {
           gulp.src(TESTS)
             .pipe(plugins.mocha())
             .pipe(plugins.istanbul.writeReports()) // Creating the reports after tests ran
-            .pipe(plugins.istanbul.enforceThresholds({ thresholds: { global: 90 } })) // Enforce a coverage of at least 90%
-            .on('end', cb);
+            .pipe(plugins.istanbul.enforceThresholds({ thresholds: { global: 90 } })) // Min 90% CC
+            .on('end', function uploadCoverage(err) {
+                  if (err) return cb(err);
+                  gulp.src('coverage/**/lcov.info')
+                    .pipe(plugins.coveralls())
+                    .on('end', cb);
+                });
         });
+});
+
+gult.task('coverage:upload', function coverageUpload() {
+  return
 });
 
 gulp.task('watch', ['build'], function watch() {
