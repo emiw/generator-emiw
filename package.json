@@ -1,0 +1,56 @@
+{
+  "name": "@emiw/generator-module",
+  "version": "0.0.1",
+  "description": "Easily scaffold a module",
+  "main": "app/index.js",
+  "scripts": {
+    "pretest": "gulp lint",
+    "test": "gulp test",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "lint": "gulp lint"
+  },
+  "files": [
+    "generators"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emiw/generator-module.git"
+  },
+  "author": {
+    "name": "Ari Porad",
+    "email": "ari@emiw.xyz",
+    "url": "http://ariporad.com"
+  },
+  "contributors": [],
+  "dependencies": {
+    "underscore.string": "^3.2.2",
+    "validate-npm-package-license": "^3.0.1",
+    "yeoman-generator": "^0.20.3"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "*",
+    "babel-eslint": "*",
+    "rewire": "2",
+    "chai": "3",
+    "cz-conventional-changelog": "1",
+    "del": "1",
+    "eslint": "1",
+    "gulp": "3",
+    "gulp-babel": "5",
+    "gulp-changed": "1",
+    "gulp-eslint": "1",
+    "gulp-load-plugins": "0.10",
+    "gulp-mocha": "2",
+    "gulp-sourcemaps": "1",
+    "mocha": "2",
+    "sinon": "1",
+    "babel": "5",
+    "source-map-support": "0.3"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/emiw/generator-module/issues"
+  },
+  "homepage": "https://github.com/emiw/generator-module#readme"
+}

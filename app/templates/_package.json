@@ -1,0 +1,44 @@
+{
+  "name": "<%= scope %><%= slug %>",
+  "version": "0.0.1",
+  "description": "<%= desc %>",
+  "main": "dist/index.js",
+  "scripts": {
+    "pretest": "gulp lint",
+    "test": "gulp test",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "lint": "gulp lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emiw/<%= slug %>.git"
+  },
+  "author": <%- authorStr %>,
+  "contributors": <%- contrib %>,
+  "devDependencies": {
+    "eslint-config-airbnb": "*",
+    "babel-eslint": "*",
+    "rewire": "2",
+    "chai": "3",
+    "cz-conventional-changelog": "1",
+    "del": "1",
+    "eslint": "1",
+    "gulp": "3",
+    "gulp-babel": "5",
+    "gulp-changed": "1",
+    "gulp-eslint": "1",
+    "gulp-load-plugins": "0.10",
+    "gulp-mocha": "2",
+    "gulp-sourcemaps": "1",
+    "mocha": "2",
+    "sinon": "1",
+    "babel": "5",
+    "source-map-support": "0.3"
+  },
+  "license": "<%= license %>",
+  "bugs": {
+    "url": "https://github.com/emiw/<%= slug %>/issues"
+  },
+  "homepage": "https://github.com/emiw/<%= slug %>#readme"
+}
