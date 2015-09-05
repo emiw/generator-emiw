@@ -10,7 +10,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
-    "generators"
+    "app"
   ],
   "publishConfig": {
     "access": "public"
