@@ -54,13 +54,21 @@ gulp.task('test', ['lint'], function test(cb) {
                   if (err) return cb(err);
                   gulp.src('coverage/**/lcov.info')
                     .pipe(plugins.coveralls())
+                    .on('error', function ignoreNoProjectFoundErrors(err) {
+                          if (err.message.indexOf('find') > -1 &&
+                              err.message.indexOf('repo') > -1) {
+                            console.log(
+                              'Hey, it looks like you haven\'t setup coveralls yet, or you\'re not ' +
+                              'on Travis! No problem, but I\'m not going to upload code coverage.'
+                            );
+                            cb();
+                          } else {
+                            cb(err)
+                          }
+                        })
                     .on('end', cb);
                 });
         });
-});
-
-gult.task('coverage:upload', function coverageUpload() {
-  return
 });
 
 gulp.task('watch', ['build'], function watch() {

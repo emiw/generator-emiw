@@ -31,6 +31,7 @@
     "gulp-mocha": "2",
     "gulp-sourcemaps": "1",
     "gulp-istanbul": "*",
+    "gulp-coveralls": "0.1",
     "mocha": "2",
     "sinon": "1",
     "babel": "5",
