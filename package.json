@@ -1,20 +1,20 @@
 {
   "name": "@emiw/generator-module",
-  "version": "1.0.0",
   "description": "Easily scaffold a module",
   "main": "app/index.js",
   "scripts": {
     "test": "gulp test",
     "build": "gulp build",
     "watch": "gulp watch",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "generators"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emiw/generator-module.git"
+    "url": "https://github.com/emiw/generator-module.git"
   },
   "author": {
     "name": "Ari Porad",
@@ -46,7 +46,8 @@
     "gulp-sourcemaps": "1",
     "mocha": "2",
     "babel": "5",
-    "source-map-support": "0.3"
+    "source-map-support": "0.3",
+    "semantic-release": "^4.3.4"
   },
   "peerDependencies": {
     "@emiw/generator-file": "*"
