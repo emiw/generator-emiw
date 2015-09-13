@@ -137,7 +137,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     index: function index() {
-      this.composeWith('@emiw/file', { args: ['src/index', 'js'] });
+      this.composeWith('@emiw/file', { args: ['index', 'js'] });
     },
   },
 
