@@ -1,35 +1,25 @@
-# generator-module
+# generator-emiw
 ---
 
-### Easily scaffold a module
+### Various generators for EMIW
 
 --- 
-[![npm version](https://badge.fury.io/js/%40emiw%2Fgenerator-module.svg)](http://badge.fury.io/js/%40emiw%2Fgenerator-module) 
-[![Build Status](https://travis-ci.org/emiw/generator-module.svg)](https://travis-ci.org/emiw/generator-module) 
-[![Dependency Status](https://david-dm.org/emiw/generator-module.svg)](https://david-dm.org/emiw/generator-module) 
-[![devDependency Status](https://david-dm.org/emiw/generator-module/dev-status.svg)](https://david-dm.org/emiw/generator-module#info=devDependencies)
+[![npm version](https://badge.fury.io/js/generator-emiw.svg)](http://badge.fury
+.io/js/generator-emiw) 
+[![Build Status](https://travis-ci.org/emiw/generator-emiw.svg)](https://travis-ci.org/emiw/generator-emiw) 
+[![Dependency Status](https://david-dm.org/emiw/generator-emiw.svg)](https://david-dm.org/emiw/generator-emiw) 
+[![devDependency Status](https://david-dm.org/emiw/generator-emiw/dev-status.svg)](https://david-dm.org/emiw/generator-emiw#info=devDependencies)
 ---
 
 ## Why?
 
-We got sick of scaffolding modules
+Because robots
 
 ---
 
 ## Installation
 
-    npm i -S @emiw/generator-module
-
-
----
-
-## Usage
-
-   var generator-module = require('@emiw/generator-module');
-   
-   // TODO: Add usage instructions
-   
-
+    npm i -S generator-emiw
 
 ---
 

@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var validLicense = require('validate-npm-package-license');
 var slugify = require('underscore.string/slugify');
+var banners = require('../../banners');
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function prompting() {
@@ -97,6 +98,17 @@ module.exports = yeoman.generators.Base.extend({
     this.props.authorStr = indent(JSON.stringify(this.props.author, null, 2));
   },
 
+  configDefault: function config() {
+    this.config.defaults({
+      banners: banners.getDefaultConfig(),
+      basedir: 'src'
+    });
+  },
+
+  banners: function setupBanners() {
+    this.props.banners = banners(this.config.get('banners'));
+  },
+
   writing: {
     copy: function copy() {
       var i;
@@ -108,20 +120,6 @@ module.exports = yeoman.generators.Base.extend({
         'testSetup.js': 'test/setup.js',
         'gitignore': '.gitignore',
         '_TODO.txt': 'TODO.txt',
-      };
-
-      var srcFiles = Object.keys(files);
-      for (i = 0; i < srcFiles.length; i++) {
-        this.fs.copy(
-          this.templatePath(srcFiles[i]),
-          this.destinationPath(files[srcFiles[i]])
-        );
-      }
-    },
-
-    copyTpl: function copyTpl() {
-      var i;
-      var files = {
         '_package.json': 'package.json',
         'readme.md': 'README.md',
       };
@@ -137,7 +135,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     index: function index() {
-      this.composeWith('@emiw/file', { args: ['index', 'js'] });
+      this.composeWith('emiw:file', { args: ['index', 'js'] });
     },
   },
 

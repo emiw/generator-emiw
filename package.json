@@ -1,7 +1,6 @@
 {
-  "name": "@emiw/generator-module",
-  "description": "Easily scaffold a module",
-  "main": "app/index.js",
+  "name": "generator-emiw",
+  "description": "Some generators for EMIW",
   "scripts": {
     "test": "gulp test",
     "build": "gulp build",
@@ -10,14 +9,14 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
-    "app"
+    "generators"
   ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/emiw/generator-module.git"
+    "url": "https://github.com/emiw/generator-emiw.git"
   },
   "author": {
     "name": "Ari Porad",
@@ -31,7 +30,6 @@
     "yeoman-generator": "^0.20.3"
   },
   "devDependencies": {
-    "@emiw/generator-file": "*",
     "eslint-config-airbnb": "*",
     "babel-eslint": "*",
     "rewire": "2",
@@ -52,12 +50,9 @@
     "source-map-support": "0.3",
     "semantic-release": "^4.3.4"
   },
-  "peerDependencies": {
-    "@emiw/generator-file": "*"
-  },
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/emiw/generator-module/issues"
+    "url": "https://github.com/emiw/generator-emiw/issues"
   },
-  "homepage": "https://github.com/emiw/generator-module#readme"
+  "homepage": "https://github.com/emiw/generator-emiw#readme"
 }
