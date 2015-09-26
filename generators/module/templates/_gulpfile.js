@@ -105,6 +105,6 @@ gulp.task('watch', ['test', 'build'], function watch(done) {
   gulp.watch(SRC_JS.concat(negate(TESTS)), ['build']);
 });
 
-gulp.task('clean', function clean(cb) {
-  del([DEST], cb);
+gulp.task('clean', function clean() {
+  return del([DEST]);
 });

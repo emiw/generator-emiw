@@ -35,7 +35,6 @@
     "rewire": "2",
     "chai": "3",
     "cz-conventional-changelog": "1",
-    "del": "1",
     "eslint": "1",
     "gulp": "3",
     "gulp-coveralls": "0.1",
