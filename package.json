@@ -1,6 +1,5 @@
 {
   "name": "generator-emiw",
-  "version": "2.0.1",
   "description": "Some generators for EMIW",
   "scripts": {
     "test": "gulp test",
