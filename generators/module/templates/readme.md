@@ -5,10 +5,10 @@
 
 ---<% var encodedNPMPackage = encodeURIComponent(scope + slug); %>
 [![npm version](https://badge.fury.io/js/<%=encodedNPMPackage%>.svg)](http://badge.fury.io/js/<%=encodedNPMPackage%>) 
-[![Build Status](https://travis-ci.org/<%= githubUsername %>/<%=slug%>.svg)](https://travis-ci.org/emiw/<%=slug%>) 
-[![Coverage Status](https://coveralls.io/repos/<%= githubUsername %>/<%=slug%>/badge.svg?branch=master&service=github)](https://coveralls.io/github/<%= githubUsername %>/<%=slug%>?branch=master)
-[![Dependency Status](https://david-dm.org/<%= githubUsername %>/<%=slug%>.svg)](https://david-dm.org/<%= githubUsername %>/<%=slug%>) 
-[![devDependency Status](https://david-dm.org/<%= githubUsername %>/<%=slug%>/dev-status.svg)](https://david-dm.org/<%= githubUsername %>/<%=slug%>#info=devDependencies)
+[![Build Status](https://travis-ci.org/<%= username %>/<%=slug%>.svg)](https://travis-ci.org/<%= username %>/<%=slug%>) 
+[![Coverage Status](https://coveralls.io/repos/<%= username %>/<%=slug%>/badge.svg?branch=master&service=github)](https://coveralls.io/github/<%= username %>/<%=slug%>?branch=master)
+[![Dependency Status](https://david-dm.org/<%= username %>/<%=slug%>.svg)](https://david-dm.org/<%= username %>/<%=slug%>) 
+[![devDependency Status](https://david-dm.org/<%= username %>/<%=slug%>/dev-status.svg)](https://david-dm.org/<%= username %>/<%=slug%>#info=devDependencies)
 ---
 
 ## Why?

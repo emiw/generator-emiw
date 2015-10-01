@@ -28,8 +28,8 @@ module.exports = yeoman.generators.Base.extend({
     var prompts = [
       {
         type: 'input',
-        name: 'githubUsername',
-        message: 'What is your Github username?:',
+        name: 'username',
+        message: 'What is your Github/npm username?:',
         default: 'emiw',
       },
       {
@@ -40,7 +40,9 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'confirm',
         name: 'scope',
-        message: 'Should this package be scoped (should it start with @emiw/should it be private)?:',
+        message: function (props) {
+          return 'Should this package be scoped (should it start with @' + props.username + '/should it be private)?:';
+        },
       },
       {
         type: 'input',
@@ -81,9 +83,9 @@ module.exports = yeoman.generators.Base.extend({
         return people[c];
       });
 
-      props.scope = props.scope ? '@emiw/' : '';
+      props.scope = props.scope ? '@' + props.username + '/' : '';
 
-      props.name = props.name.replace(/^@?emiw\/?/i, '');
+      props.name = props.name.replace(new RegExp('^@?' + props.username + '\/?', 'i'), '');
       props.slug = slugify(props.name);
 
       this.props = props;
