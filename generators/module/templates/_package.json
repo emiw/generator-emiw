@@ -38,7 +38,9 @@
     "sinomocha": "0.2",
     "sinon": "1",
     "sinon-chai": "2",
-    "source-map-support": "0.3"
+    "source-map-support": "0.3",
+    "shelljs": "0.5",
+    "once": "1"
   },
   "license": "<%= license %>",
   "bugs": {
