@@ -107,10 +107,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   configDefault: function config() {
-    this.config.defaults({
-      banners: banners.getDefaultConfig(),
-      basedir: 'src'
-    });
+    this.composeWith('emiw:yo-rc');
   },
 
   banners: function setupBanners() {
