@@ -27,9 +27,15 @@ module.exports = yeoman.generators.Base.extend({
     var peopleNames = Object.keys(people);
     var prompts = [
       {
-        'type': 'input',
-        'name': 'name',
-        'message': 'What do you want to name this module?:',
+        type: 'input',
+        name: 'githubUsername',
+        message: 'What is your Github username?:',
+        default: 'emiw',
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What do you want to name this module?:',
       },
       {
         type: 'confirm',

@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emiw/<%= slug %>.git"
+    "url": "git+https://github.com/<%= githubUsername %>/<%= slug %>.git"
   },
   "author":<%- authorStr %>,
   "contributors":<%- contrib %>,
@@ -44,7 +44,7 @@
   },
   "license": "<%= license %>",
   "bugs": {
-    "url": "https://github.com/emiw/<%= slug %>/issues"
+    "url": "https://github.com/<%= githubUsername %>/<%= slug %>/issues"
   },
-  "homepage": "https://github.com/emiw/<%= slug %>#readme"
+  "homepage": "https://github.com/<%= githubUsername %>/<%= slug %>#readme"
 }
