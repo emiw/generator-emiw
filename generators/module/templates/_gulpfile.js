@@ -24,7 +24,7 @@ function negate(paths) {
 }
 
 var SRC = 'src';
-var DEST = 'build';
+var DEST = 'dist';
 var SPIKES = './spikes';
 
 var SRC_OTHER = [SRC + '/**', '!**/*.js'];
