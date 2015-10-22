@@ -2,7 +2,7 @@
 var yeoman = require('yeoman-generator');
 var validLicense = require('validate-npm-package-license');
 var slugify = require('underscore.string/slugify');
-var banners = require('../../banners');
+var banners = require('../../banners.js');
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function prompting() {
@@ -127,6 +127,7 @@ module.exports = yeoman.generators.Base.extend({
         '_TODO.txt': 'TODO.txt',
         '_package.json': 'package.json',
         'readme.md': 'README.md',
+        'gulp': 'gulp',
       };
 
       var srcFiles = Object.keys(files);

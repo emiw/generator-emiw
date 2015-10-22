@@ -1,5 +1,5 @@
 var yeoman = require('yeoman-generator');
-var banners = require('../../banners');
+var banners = require('../../banners.js');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function generateConfig() {
