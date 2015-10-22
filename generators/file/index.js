@@ -73,7 +73,7 @@ module.exports = yeoman.generators.Base.extend({
     var i;
     var files = {
       'file.js': path.resolve(this.config.get('basedir'), this.filename + this.extension),
-      'file.test.js': path.resolve(this.config.get('basedir'), this.filename + '.test' + this.extension),
+      'file.test.js': path.resolve(this.config.get('basedir'), this.filename + '.test.unit' + this.extension),
     };
 
     var srcFiles = Object.keys(files);
