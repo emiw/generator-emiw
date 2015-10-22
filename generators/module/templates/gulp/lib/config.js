@@ -42,7 +42,6 @@ config.codeCoverage = {
 config.mocha = {
   // Because of child_process.spawn nonsense, we have to specify the option name and value as seperate strings.
   args: [
-    '--require', join(config.dest, 'setup.js'),
     '--require', basePath('test', 'setup.js'),
   ],
 
